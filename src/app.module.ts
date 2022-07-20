@@ -29,7 +29,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
-        type: 'mysql',
+        type: 'postgres',
         host: config.get<string>('TPYEORM_HOST'),
         port: config.get<number>('TYPEORM_PORT'),
         username: config.get<string>('TYPEORM_USERNAME'),

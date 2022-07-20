@@ -35,14 +35,14 @@ To set up on multiple environments, such as dev, stage or prod, we do as follows
    EMAIL_DEFAULT_LAYOUT='index'
 ```
 
-## Config settings .env for connect MySQL
+## Config settings .env for connect postgres
 
 Once the database has been configured, start the Nest App via ```npm run start:dev``` it automatically synchronizes the entities so ready to use. :heart_eyes_cat:
 
 ```
-   TYPEORM_CONNECTION = "mysql"
+   TYPEORM_CONNECTION = "postgres"
    TYPEORM_HOST = "localhost"
-   TYPEORM_PORT = 3306
+   TYPEORM_PORT = 5432
    TYPEORM_USERNAME = [:user]
    TYPEORM_PASSWORD = [:password]
    TYPEORM_DATABASE = [:database]
@@ -113,7 +113,7 @@ SWAGGER_PASSWORD=[:password]
 
 If you want to add more environments, include them in the `SWAGGER_ENVS` array in `main.ts`, see the following:
 
-```typescript 
+```typescript
 const SWAGGER_ENVS = ['local', 'dev', 'staging'];
 ```
 

@@ -154,3 +154,10 @@ const SWAGGER_ENVS = ['local', 'dev', 'staging'];
 ```bash
    $ curl -H 'content-type: application/json' -v -X PUT -d '{"name": "tony", "email": "tony_admin@nest.it", "username": "tony_admin"}' http://127.0.0.1:3000/api/users/:id/profile  -H 'Authorization: Bearer [:token]'
 ```
+
+
+## Adding a new new module
+
+yarn run nest generate mo auth
+yarn run nest generate co auth
+yarn run nest generate service auth

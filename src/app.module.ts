@@ -3,13 +3,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { LoginModule } from './login/login.module';
-import { RegisterModule } from './register/register.module';
 import { UsersModule } from './users/users.module';
-import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
-import { ChangePasswordModule } from './change-password/change-password.module';
 import { MailerModule } from './mailer/mailer.module';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -45,12 +42,9 @@ import { ThrottlerModule } from '@nestjs/throttler';
         },
       }),
     }),
-    LoginModule,
-    RegisterModule,
     UsersModule,
-    ForgotPasswordModule,
-    ChangePasswordModule,
     MailerModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

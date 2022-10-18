@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
-import { LoginService } from './login.service';
-import { LoginController } from './login.controller';
+import { AuthController } from './auth.controller';
+import { AuthService } from './auth.service';
+
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Users } from '../users/entities/users.entity';
 import { JwtModule } from '@nestjs/jwt';
@@ -8,6 +9,7 @@ import { UsersService } from '../users/users.service';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MailerModule } from 'src/mailer/mailer.module';
 
 @Module({
   imports: [
@@ -19,13 +21,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       useFactory: async (configService: ConfigService) => ({
         secret: configService.get<string>('SECRET_KEY_JWT'),
         signOptions: {
-          expiresIn: 3600,
+          expiresIn: "1d",
         },
       }),
       inject: [ConfigService],
     }),
+    MailerModule
   ],
-  providers: [LoginService, UsersService, JwtStrategy],
-  controllers: [LoginController],
+  providers: [AuthService, UsersService, JwtStrategy],
+  controllers: [AuthController],
 })
-export class LoginModule {}
+export class AuthModule {}

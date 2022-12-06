@@ -51,7 +51,7 @@
     "@nestjs/testing": "^9.1.4",
     "@types/express": "^4.17.14",
     "@types/jest": "^28.1.6",
-    "@types/node": "^18.11.0",
+    "@types/node": "^18.11.11",
     "@types/nodemailer": "^6.4.6",
     "@types/nodemailer-express-handlebars": "^4.0.2",
     "@types/supertest": "^2.0.12",
